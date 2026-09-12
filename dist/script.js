@@ -1,23 +1,29 @@
 (() => {
+  const header = document.querySelector('[data-header]');
   const tabs = [...document.querySelectorAll('[role="tab"][data-region]')];
   const panels = [...document.querySelectorAll('[role="tabpanel"][data-panel]')];
-  const number = document.querySelector('[data-region-number]');
-  const header = document.querySelector('[data-header]');
-  const regionOrder = { seoul: '01', gyeonggi: '02', incheon: '03' };
+  const regionNumbers = [...document.querySelectorAll('[data-region-number]')];
+  const currentRegion = document.querySelector('[data-current-region]');
+  const regionData = {
+    seoul: { number: '01', label: 'SEOUL' },
+    gyeonggi: { number: '02', label: 'GYEONGGI' },
+    incheon: { number: '03', label: 'INCHEON' }
+  };
 
   function activateRegion(region, updateHash = true) {
-    if (!regionOrder[region]) return;
+    const selected = regionData[region];
+    if (!selected) return;
+
     tabs.forEach((tab) => {
-      const selected = tab.dataset.region === region;
-      tab.setAttribute('aria-selected', String(selected));
-      tab.tabIndex = selected ? 0 : -1;
+      const active = tab.dataset.region === region;
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
     });
     panels.forEach((panel) => {
-      const active = panel.dataset.panel === region;
-      panel.hidden = !active;
-      panel.classList.toggle('is-active', active);
+      panel.hidden = panel.dataset.panel !== region;
     });
-    if (number) number.textContent = regionOrder[region];
+    regionNumbers.forEach((element) => { element.textContent = selected.number; });
+    if (currentRegion) currentRegion.textContent = selected.label;
     if (updateHash) history.replaceState(null, '', '#region-' + region);
   }
 
@@ -36,16 +42,19 @@
     });
   });
 
-  const targetRegion = location.hash.replace('#region-', '');
-  if (regionOrder[targetRegion]) activateRegion(targetRegion, false);
+  const regionFromHash = location.hash.replace('#region-', '');
+  if (regionData[regionFromHash]) activateRegion(regionFromHash, false);
+
   window.addEventListener('hashchange', () => {
     const region = location.hash.replace('#region-', '');
-    if (regionOrder[region]) activateRegion(region, false);
+    if (regionData[region]) activateRegion(region, false);
   });
 
-  const setHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 24);
-  setHeader();
-  window.addEventListener('scroll', setHeader, { passive: true });
+  function updateHeader() {
+    header?.classList.toggle('is-scrolled', window.scrollY > 28);
+  }
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
 
   const year = document.querySelector('[data-year]');
   if (year) year.textContent = String(new Date().getFullYear());
