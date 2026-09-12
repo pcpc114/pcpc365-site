@@ -58,9 +58,13 @@ h1, h2, h3, p { margin-top: 0; }
 .city-hero::before { position: absolute; z-index: 1; inset: 0; content: ""; background: linear-gradient(90deg, rgba(6,5,5,.88) 0%, rgba(6,5,5,.72) 37%, rgba(6,5,5,.28) 70%, rgba(6,5,5,.18)), linear-gradient(0deg, rgba(6,5,5,.9), transparent 42%, rgba(6,5,5,.26)); }
 .city-hero::after { position: absolute; z-index: 1; top: -43vw; left: -18vw; width: 78vw; height: 78vw; content: ""; border: 1px solid color-mix(in srgb, var(--accent) 42%, transparent); border-radius: 50%; box-shadow: 0 0 0 8vw rgba(247,240,232,.016), 0 0 0 16vw rgba(247,240,232,.011); }
 .city-hero-inner { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; min-height: min(850px, 100svh); padding: 132px 0 58px; }
+.city-breadcrumb { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 19px; color: rgba(247,240,232,.54); font-family: var(--mono); font-size: .55rem; font-weight: 700; letter-spacing: .08em; }
+.city-breadcrumb a:hover { color: var(--accent); }
+.city-breadcrumb span:last-child { color: rgba(247,240,232,.78); }
 .city-code { display: flex; align-items: center; gap: 12px; margin-bottom: 25px; color: var(--accent); font-family: var(--mono); font-size: .62rem; font-weight: 700; letter-spacing: .12em; }
 .city-code::before { width: 31px; height: 1px; content: ""; background: currentColor; }
 .city-hero h1 { max-width: 900px; margin: 0; color: var(--cream); font-size: clamp(4rem, 7.3vw, 7.6rem); font-weight: 790; line-height: .88; letter-spacing: -.1em; }
+.city-hero h1 .city-topic { display: block; margin-bottom: 18px; color: var(--accent); font-family: var(--mono); font-size: .62rem; font-weight: 700; font-style: normal; letter-spacing: .11em; line-height: 1.2; }
 .city-hero h1 em { color: var(--accent); font-family: var(--serif); font-weight: 500; font-style: italic; letter-spacing: -.12em; }
 .city-lede { max-width: 520px; margin: 34px 0 0; color: rgba(247,240,232,.72); font-size: 1.04rem; line-height: 1.85; letter-spacing: -.04em; }
 .city-metric { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; width: min(690px, 100%); margin: 54px 0 0; border-top: 1px solid rgba(247,240,232,.24); }
@@ -142,7 +146,9 @@ h1, h2, h3, p { margin-top: 0; }
   .city-hero { min-height: 740px; }
   .city-hero > img { object-position: 63% center; }
   .city-hero-inner { min-height: 740px; padding: 100px 0 34px; }
+  .city-breadcrumb { margin-bottom: 15px; font-size: .51rem; }
   .city-hero h1 { font-size: clamp(3.5rem, 14vw, 5.65rem); }
+  .city-hero h1 .city-topic { margin-bottom: 15px; font-size: .56rem; }
   .city-lede { margin-top: 27px; font-size: .97rem; line-height: 1.78; }
   .city-metric { margin-top: 41px; }
   .city-metric div { padding-top: 13px; }
