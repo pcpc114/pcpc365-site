@@ -2,12 +2,11 @@
   const header = document.querySelector('[data-header]');
   const tabs = [...document.querySelectorAll('[role="tab"][data-region]')];
   const panels = [...document.querySelectorAll('[role="tabpanel"][data-panel]')];
-  const regionNumbers = [...document.querySelectorAll('[data-region-number]')];
   const currentRegion = document.querySelector('[data-current-region]');
   const regionData = {
-    seoul: { number: '01', label: 'SEOUL' },
-    gyeonggi: { number: '02', label: 'GYEONGGI' },
-    incheon: { number: '03', label: 'INCHEON' }
+    seoul: { label: 'SEOUL' },
+    gyeonggi: { label: 'GYEONGGI' },
+    incheon: { label: 'INCHEON' }
   };
 
   function activateRegion(region, updateHash = true) {
@@ -22,9 +21,8 @@
     panels.forEach((panel) => {
       panel.hidden = panel.dataset.panel !== region;
     });
-    regionNumbers.forEach((element) => { element.textContent = selected.number; });
     if (currentRegion) currentRegion.textContent = selected.label;
-    if (updateHash) history.replaceState(null, '', '#region-' + region);
+    if (updateHash) history.replaceState(null, '', `#region-${region}`);
   }
 
   tabs.forEach((tab, index) => {
