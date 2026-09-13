@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://seongin-pc-local-lounge.godqhr12312.chatgpt.site/sitemap.xml
+Sitemap: https://pcpc365.li/sitemap.xml
