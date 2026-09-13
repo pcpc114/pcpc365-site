@@ -4,9 +4,9 @@
   const panels = [...document.querySelectorAll('[role="tabpanel"][data-panel]')];
   const currentRegion = document.querySelector('[data-current-region]');
   const regionData = {
-    seoul: { label: 'SEOUL' },
-    gyeonggi: { label: 'GYEONGGI' },
-    incheon: { label: 'INCHEON' }
+    flow: { label: 'FLOW' },
+    movement: { label: 'MOVEMENT' },
+    return: { label: 'RETURN' }
   };
 
   function activateRegion(region, updateHash = true) {
@@ -46,6 +46,33 @@
   window.addEventListener('hashchange', () => {
     const region = location.hash.replace('#region-', '');
     if (regionData[region]) activateRegion(region, false);
+  });
+
+  const atlasLinks = [...document.querySelectorAll('[data-atlas-link]')];
+  const atlasImage = document.querySelector('[data-atlas-image]');
+  const atlasIndex = document.querySelector('[data-atlas-index]');
+  const atlasCity = document.querySelector('[data-atlas-city]');
+  const atlasLabel = document.querySelector('[data-atlas-label]');
+  const atlasCaption = document.querySelector('[data-atlas-caption]');
+
+  function activateAtlas(link) {
+    if (!link || !atlasImage) return;
+    const { alt, caption, city, index, label, src, srcset } = link.dataset;
+    if (src && atlasImage.getAttribute('src') !== src) {
+      atlasImage.src = src;
+      atlasImage.srcset = srcset || '';
+    }
+    if (alt) atlasImage.alt = alt;
+    if (atlasIndex) atlasIndex.textContent = index || '';
+    if (atlasCity) atlasCity.textContent = city || '';
+    if (atlasLabel) atlasLabel.textContent = label || '';
+    if (atlasCaption) atlasCaption.textContent = caption || '';
+    atlasLinks.forEach((item) => item.classList.toggle('is-active', item === link));
+  }
+
+  atlasLinks.forEach((link) => {
+    link.addEventListener('mouseenter', () => activateAtlas(link));
+    link.addEventListener('focus', () => activateAtlas(link));
   });
 
   let headerFrame = 0;
