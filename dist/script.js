@@ -48,11 +48,24 @@
     if (regionData[region]) activateRegion(region, false);
   });
 
+  let headerFrame = 0;
+  let headerIsScrolled = null;
+
   function updateHeader() {
-    header?.classList.toggle('is-scrolled', window.scrollY > 28);
+    headerFrame = 0;
+    const shouldStick = window.scrollY > 28;
+    if (!header || shouldStick === headerIsScrolled) return;
+    header.classList.toggle('is-scrolled', shouldStick);
+    headerIsScrolled = shouldStick;
   }
+
+  function requestHeaderUpdate() {
+    if (headerFrame) return;
+    headerFrame = window.requestAnimationFrame(updateHeader);
+  }
+
   updateHeader();
-  window.addEventListener('scroll', updateHeader, { passive: true });
+  window.addEventListener('scroll', requestHeaderUpdate, { passive: true });
 
   const year = document.querySelector('[data-year]');
   if (year) year.textContent = String(new Date().getFullYear());

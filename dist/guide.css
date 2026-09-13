@@ -153,6 +153,7 @@ h1, h2, h3, p { margin-top: 0; }
 }
 
 @media (max-width: 740px) {
+  body::before { display: none; }
   :root { --shell: min(100vw - 38px, 1160px); }
   .guide-header-inner { min-height: 66px; gap: 15px; }
   .guide-brand small, .guide-nav { display: none; }
