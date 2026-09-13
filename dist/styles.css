@@ -736,6 +736,32 @@ body::before { display: none; }
   .atlas-link:last-child { border-bottom: 0; }
 }
 
+/* edition 04 — a more monumental first arrival */
+.hero--architecture::before { background: linear-gradient(90deg, #070606 0%, #070606 29%, rgba(7,6,6,.77) 43%, rgba(7,6,6,.08) 71%, rgba(7,6,6,.02) 100%); }
+.hero--architecture .hero-image img { filter: saturate(.84) contrast(1.06) brightness(.98); }
+.hero--architecture .hero-darken { background: linear-gradient(90deg, rgba(5,5,5,.55) 0%, rgba(5,5,5,.22) 43%, rgba(5,5,5,0) 70%), linear-gradient(0deg, rgba(5,5,5,.84) 0%, transparent 37%, rgba(5,5,5,.16) 100%); }
+.hero--architecture .hero-darken::after { background: radial-gradient(circle at 68% 53%, rgba(197,138,72,.12), transparent 21%), linear-gradient(90deg, rgba(103,19,25,.18), transparent 43%); }
+.hero-axis { left: clamp(560px, 47vw, 825px); }
+.hero-edition-mark { right: max(21px, calc((100vw - 1280px) / 2)); }
+.hero-caption { right: max(35px, calc((100vw - 1280px) / 2)); bottom: 38px; color: rgba(245,238,229,.48); }
+.hero--architecture .hero-content { max-width: 770px; padding: 35px 0 39px 26px; }
+.hero--architecture .hero-content::before { position: absolute; top: 16px; bottom: 18px; left: 0; width: 1px; content: ""; background: linear-gradient(transparent, rgba(229,198,157,.78) 17%, rgba(229,198,157,.25) 78%, transparent); }
+.hero--architecture h1 { max-width: 790px; }
+
+@media (max-width: 760px) {
+  .hero--architecture { min-height: 100svh; min-height: 100dvh; }
+  .hero--architecture::before { background: linear-gradient(90deg, rgba(5,5,5,.78) 0%, rgba(5,5,5,.58) 47%, rgba(5,5,5,.1) 100%); }
+  .hero--architecture .hero-darken { background: linear-gradient(0deg, rgba(5,5,5,.9) 0%, rgba(5,5,5,.42) 36%, transparent 64%, rgba(5,5,5,.13) 100%); }
+  .hero--architecture .hero-darken::after { background: linear-gradient(90deg, rgba(103,19,25,.14), transparent 64%); }
+  .hero--architecture .hero-image img { object-position: center; filter: saturate(.9) contrast(1.04) brightness(1); }
+  .hero-axis { left: auto; right: 18%; }
+  .hero--architecture .hero-inner { min-height: 100svh; min-height: 100dvh; padding: 84px 0 42px; }
+  .hero--architecture .hero-content { padding: 28px 0 24px; }
+  .hero--architecture .hero-content::before { display: none; }
+  .hero--architecture .hero-actions { gap: 0; }
+  .hero--architecture .hero-actions .text-link { display: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
