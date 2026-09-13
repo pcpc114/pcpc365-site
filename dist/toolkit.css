@@ -53,11 +53,40 @@
 .field-note-grid, .inquiry-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px; margin-top: 27px; }
 .field-note-grid label, .quote-card label, .inquiry-grid label { display: grid; gap: 8px; min-width: 0; color: #60493e; font-size: .78rem; font-weight: 760; letter-spacing: -.04em; }
 .field-note-wide { grid-column: 1 / -1; }
-.field-note-grid input, .field-note-grid textarea, .quote-card input, .quote-card textarea, .inquiry-grid input, .inquiry-grid textarea { width: 100%; border: 1px solid rgba(50,29,22,.2); border-radius: 0; padding: 12px 13px; color: #2e201b; outline: none; background: rgba(247,240,232,.68); font: inherit; font-size: .9rem; font-weight: 500; line-height: 1.56; letter-spacing: -.035em; transition: border-color .15s ease, background .15s ease; }
-.field-note-grid input, .quote-card input, .inquiry-grid input { min-height: 44px; }
-.field-note-grid textarea, .quote-card textarea, .inquiry-grid textarea { resize: vertical; }
-.field-note-grid input:focus, .field-note-grid textarea:focus, .quote-card input:focus, .quote-card textarea:focus, .inquiry-grid input:focus, .inquiry-grid textarea:focus { border-color: var(--wine); background: #fffaf5; }
-.field-note-grid input::placeholder, .field-note-grid textarea::placeholder, .quote-card input::placeholder, .quote-card textarea::placeholder, .inquiry-grid input::placeholder, .inquiry-grid textarea::placeholder { color: #a38c7e; opacity: 1; }
+.field-note-grid input, .field-note-grid textarea, .quote-card input, .quote-card textarea, .inquiry-grid input, .inquiry-grid textarea, .budget-fields input, .budget-fields select, .budget-fields textarea { width: 100%; border: 1px solid rgba(50,29,22,.2); border-radius: 0; padding: 12px 13px; color: #2e201b; outline: none; background: rgba(247,240,232,.68); font: inherit; font-size: .9rem; font-weight: 500; line-height: 1.56; letter-spacing: -.035em; transition: border-color .15s ease, background .15s ease; }
+.field-note-grid input, .quote-card input, .inquiry-grid input, .budget-fields input, .budget-fields select { min-height: 44px; }
+.field-note-grid textarea, .quote-card textarea, .inquiry-grid textarea, .budget-fields textarea { resize: vertical; }
+.field-note-grid input:focus, .field-note-grid textarea:focus, .quote-card input:focus, .quote-card textarea:focus, .inquiry-grid input:focus, .inquiry-grid textarea:focus, .budget-fields input:focus, .budget-fields select:focus, .budget-fields textarea:focus { border-color: var(--wine); background: #fffaf5; }
+.field-note-grid input::placeholder, .field-note-grid textarea::placeholder, .quote-card input::placeholder, .quote-card textarea::placeholder, .inquiry-grid input::placeholder, .inquiry-grid textarea::placeholder, .budget-fields input::placeholder, .budget-fields textarea::placeholder { color: #a38c7e; opacity: 1; }
+.budget-plan-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(230px, .43fr); gap: 20px; align-items: start; margin-top: 27px; }
+.budget-entry-list { min-width: 0; margin: 0; padding: 0; border: 1px solid rgba(50,29,22,.2); background: rgba(247,240,232,.5); }
+.budget-entry-list legend { margin-left: 15px; padding: 0 8px; color: var(--wine); font-family: var(--mono); font-size: .58rem; font-weight: 700; letter-spacing: .1em; }
+.budget-row { display: grid; grid-template-columns: minmax(120px, .43fr) minmax(0, 1fr); gap: 22px; padding: 21px; border-bottom: 1px solid rgba(50,29,22,.16); }
+.budget-row:last-child { border-bottom: 0; }
+.budget-row-copy h3 { margin: 0; color: #35231c; font-size: 1.02rem; letter-spacing: -.06em; }
+.budget-row-copy p { margin: 8px 0 0; color: #7a665a; font-size: .76rem; line-height: 1.66; letter-spacing: -.04em; }
+.budget-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; }
+.budget-fields label { display: grid; gap: 7px; min-width: 0; color: #60493e; font-size: .82rem; font-weight: 760; letter-spacing: -.04em; }
+.budget-note-field { grid-column: 1 / -1; }
+.amount-control { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; border: 1px solid rgba(50,29,22,.2); background: rgba(247,240,232,.68); transition: border-color .15s ease, background .15s ease; }
+.amount-control:focus-within { border-color: var(--wine); background: #fffaf5; }
+.amount-control input { min-width: 0; border: 0; background: transparent; }
+.amount-control input:focus { border-color: transparent; background: transparent; }
+.amount-control b { padding-right: 13px; color: #846d60; font-family: var(--mono); font-size: .7rem; letter-spacing: .05em; }
+.budget-result { padding: 24px; color: var(--cream); background: #251714; box-shadow: 14px 14px 0 rgba(102,41,42,.13); }
+.budget-result > p:first-child { margin: 0; color: var(--gold); font-family: var(--mono); font-size: .56rem; font-weight: 700; letter-spacing: .11em; }
+.budget-result > div { margin-top: 20px; padding-bottom: 21px; border-bottom: 1px solid rgba(247,240,232,.18); }
+.budget-result > div span { display: block; color: rgba(247,240,232,.57); font-size: .78rem; font-weight: 700; letter-spacing: -.04em; }
+.budget-result > div strong { display: block; margin-top: 8px; color: var(--gold-pale); font-family: var(--serif); font-size: clamp(2rem, 3.2vw, 2.75rem); font-weight: 500; font-style: italic; letter-spacing: -.08em; line-height: 1; }
+.budget-result dl { margin: 0; }
+.budget-result dl > div { display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-bottom: 1px solid rgba(247,240,232,.13); }
+.budget-result dt { color: rgba(247,240,232,.58); font-size: .72rem; line-height: 1.55; letter-spacing: -.04em; }
+.budget-result dd { margin: 0; color: var(--cream); font-family: var(--mono); font-size: .72rem; font-weight: 700; letter-spacing: -.04em; text-align: right; }
+.budget-result dd output { font: inherit; }
+.budget-result > p[data-budget-total-note] { margin: 18px 0 0; color: rgba(247,240,232,.7); font-size: .78rem; line-height: 1.7; letter-spacing: -.04em; }
+.budget-result small { display: block; margin-top: 17px; padding-top: 16px; border-top: 1px solid rgba(247,240,232,.14); color: rgba(247,240,232,.47); font-size: .69rem; line-height: 1.68; letter-spacing: -.035em; }
+.budget-result a { display: inline-block; margin-top: 20px; color: var(--gold-pale); font-size: .78rem; font-weight: 800; letter-spacing: -.045em; }
+.budget-result a b { margin-left: 6px; color: var(--gold); font-family: var(--serif); font-size: 1.22rem; }
 .quote-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 27px; }
 .quote-card { display: grid; gap: 16px; min-width: 0; margin: 0; padding: 21px; border: 1px solid rgba(50,29,22,.2); background: rgba(247,240,232,.48); }
 .quote-card legend { padding: 0 8px; color: var(--wine); font-family: var(--serif); font-size: 1.24rem; font-style: italic; letter-spacing: -.055em; }
@@ -84,6 +113,7 @@
   .toolkit-grid { grid-template-columns: minmax(220px, .43fr) minmax(0, 1fr); }
   .tool-panel-heading { grid-template-columns: 38px 1fr; }
   .tool-panel-heading > p { grid-column: 2; }
+  .budget-plan-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 740px) {
@@ -100,7 +130,10 @@
   .toolkit-form { gap: 47px; }
   .tool-panel-heading { grid-template-columns: 32px 1fr; gap: 13px; padding-bottom: 21px; }
   .tool-panel-heading > p { grid-column: 1 / -1; margin-top: 5px; }
-  .check-groups, .field-note-grid, .quote-grid, .inquiry-grid, .toolkit-related-grid { grid-template-columns: 1fr; }
+  .check-groups, .field-note-grid, .quote-grid, .inquiry-grid, .toolkit-related-grid, .budget-plan-grid { grid-template-columns: 1fr; }
+  .budget-row { grid-template-columns: 1fr; gap: 17px; padding: 18px; }
+  .budget-fields { grid-template-columns: 1fr; }
+  .budget-note-field { grid-column: auto; }
   .field-note-wide, .inquiry-output-wrap { grid-column: auto; }
   .check-group legend { padding-top: 18px; }
   .toolkit-reading { padding: 78px 0 86px; }
@@ -119,5 +152,5 @@
   .tool-panel { margin-bottom: 28px; break-inside: avoid; }
   .tool-panel-heading { grid-template-columns: 32px 1fr; }
   .tool-panel-heading > p { grid-column: 1 / -1; }
-  .check-card, .quote-card, .field-note-grid input, .field-note-grid textarea, .quote-card input, .quote-card textarea, .inquiry-grid input, .inquiry-grid textarea { background: #fff; }
+  .check-card, .quote-card, .field-note-grid input, .field-note-grid textarea, .quote-card input, .quote-card textarea, .inquiry-grid input, .inquiry-grid textarea, .budget-entry-list, .budget-fields input, .budget-fields select, .budget-fields textarea, .amount-control { background: #fff; }
 }

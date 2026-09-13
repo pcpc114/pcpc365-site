@@ -10,6 +10,13 @@
   const progressCopy = document.querySelector('[data-progress-copy]');
   const saveStatus = document.querySelector('[data-save-status]');
   const inquiryOutput = document.querySelector('[data-inquiry-output]');
+  const budgetRows = [...form.querySelectorAll('[data-budget-row]')];
+  const budgetAmounts = [...form.querySelectorAll('[data-budget-amount]')];
+  const budgetTotal = document.querySelector('[data-budget-total]');
+  const budgetConfirmed = document.querySelector('[data-budget-confirmed]');
+  const budgetEstimated = document.querySelector('[data-budget-estimated]');
+  const budgetUnknown = document.querySelector('[data-budget-unknown]');
+  const budgetTotalNote = document.querySelector('[data-budget-total-note]');
 
   const readValue = (name) => form.elements.namedItem(name)?.value?.trim() || '';
 
@@ -38,6 +45,49 @@
 
   function updateInquiryPreview() {
     if (inquiryOutput) inquiryOutput.textContent = buildInquiryBrief();
+  }
+
+  function getAmount(value) {
+    const amount = Number(String(value).replace(/[^\d]/g, ''));
+    return Number.isFinite(amount) ? amount : 0;
+  }
+
+  function formatCurrency(value) {
+    return `${new Intl.NumberFormat('ko-KR').format(value)}원`;
+  }
+
+  function updateBudgetSummary() {
+    let total = 0;
+    let confirmed = 0;
+    let estimated = 0;
+    let unknown = 0;
+    let entered = 0;
+
+    budgetRows.forEach((row) => {
+      const amount = getAmount(row.querySelector('[data-budget-amount]')?.value || '');
+      const status = row.querySelector('[data-budget-status]')?.value || 'unknown';
+      if (amount > 0) {
+        total += amount;
+        entered += 1;
+        if (status === 'verified' || status === 'quoted') confirmed += amount;
+        if (status === 'estimated') estimated += amount;
+      }
+      if (amount === 0 || status === 'unknown') unknown += 1;
+    });
+
+    if (budgetTotal) budgetTotal.textContent = formatCurrency(total);
+    if (budgetConfirmed) budgetConfirmed.textContent = formatCurrency(confirmed);
+    if (budgetEstimated) budgetEstimated.textContent = formatCurrency(estimated);
+    if (budgetUnknown) budgetUnknown.textContent = String(unknown);
+    if (!budgetTotalNote) return;
+    if (entered === 0) budgetTotalNote.textContent = '입력한 금액이 없습니다. 확인한 견적부터 하나씩 기록해 보세요.';
+    else if (unknown > 0) budgetTotalNote.textContent = `입력한 ${entered}개 항목의 단순 합계입니다. 금액 또는 범위가 미확인인 항목은 ${unknown}개입니다.`;
+    else budgetTotalNote.textContent = `입력한 ${entered}개 항목의 단순 합계입니다. 원본 견적과 계약 조건을 다시 확인해 보세요.`;
+  }
+
+  function formatBudgetField(field) {
+    const amount = getAmount(field.value);
+    field.value = amount > 0 ? new Intl.NumberFormat('ko-KR').format(amount) : '';
   }
 
   function save() {
@@ -69,16 +119,27 @@
   restore();
   updateChecklist();
   updateInquiryPreview();
+  updateBudgetSummary();
 
   fields.forEach((field) => {
     field.addEventListener('input', () => {
       save();
       updateInquiryPreview();
+      updateBudgetSummary();
     });
     field.addEventListener('change', () => {
       save();
       updateChecklist();
       updateInquiryPreview();
+      updateBudgetSummary();
+    });
+  });
+
+  budgetAmounts.forEach((field) => {
+    field.addEventListener('blur', () => {
+      formatBudgetField(field);
+      save();
+      updateBudgetSummary();
     });
   });
 
@@ -88,6 +149,7 @@
     try { window.localStorage.removeItem(storageKey); } catch { /* Browser storage may be unavailable. */ }
     updateChecklist();
     updateInquiryPreview();
+    updateBudgetSummary();
     if (saveStatus) saveStatus.textContent = '이 브라우저에 저장된 워크북 기록을 지웠습니다.';
   });
 
