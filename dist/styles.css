@@ -230,6 +230,13 @@ h1 em, h2 em, h3 em { color: var(--gold-pale); font-family: var(--serif); font-w
 .resource-card p { margin: 0; color: rgba(245,238,229,.56); font-size: .77rem; line-height: 1.7; letter-spacing: -.04em; }
 .resource-card b { align-self: end; margin-top: 19px; color: var(--gold); font-family: var(--serif); font-size: 1.25rem; }
 .resource-note { max-width: 780px; margin: 28px 0 0; color: rgba(245,238,229,.42); font-size: .72rem; line-height: 1.72; letter-spacing: -.035em; }
+.resource-tool { display: grid; grid-template-columns: 168px minmax(0, 1fr) auto; gap: 30px; align-items: center; margin-top: 2px; padding: 24px 29px; border: 1px solid rgba(214,167,104,.42); background: linear-gradient(102deg, rgba(91,32,34,.68), rgba(32,19,19,.88) 62%, rgba(24,17,17,.96)); transition: border-color .2s ease, transform .2s ease, background .2s ease; }
+.resource-tool:hover { border-color: var(--gold); background: linear-gradient(102deg, rgba(111,38,41,.76), rgba(43,24,24,.94) 62%, rgba(29,19,19,.98)); transform: translateY(-3px); }
+.resource-tool > span { color: var(--gold-pale); font-family: var(--mono); font-size: .57rem; font-weight: 700; letter-spacing: .11em; line-height: 1.65; }
+.resource-tool h3 { margin: 0; color: var(--cream); font-size: 1.35rem; letter-spacing: -.075em; }
+.resource-tool p { margin: 8px 0 0; color: rgba(245,238,229,.62); font-size: .83rem; line-height: 1.7; letter-spacing: -.04em; }
+.resource-tool > b { color: var(--gold-pale); font-size: .82rem; letter-spacing: -.05em; white-space: nowrap; }
+.resource-tool > b i { margin-left: 8px; color: var(--gold); font-family: var(--serif); font-size: 1.25rem; font-style: normal; }
 
 /* regional dossier */
 .regional-lens { position: relative; overflow: hidden; padding: 172px 0 177px; color: var(--ink); background: var(--paper-bright); }
@@ -550,6 +557,8 @@ body::before { opacity: 0.045; mix-blend-mode: soft-light; }
   .resource-card--opening h3 { max-width: 350px; font-size: clamp(2.15rem, 10vw, 3.45rem); }
   .resource-card--opening p { font-size: .82rem; }
   .resource-card--closing { grid-column: 1 / -1; }
+  .resource-tool { grid-template-columns: 1fr; gap: 13px; padding: 22px 20px; }
+  .resource-tool > b { margin-top: 3px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

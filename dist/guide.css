@@ -132,6 +132,10 @@ h1, h2, h3, p { margin-top: 0; }
 .guide-related h2 em { color: var(--gold-pale); font-family: var(--serif); font-weight: 500; font-style: italic; }
 .guide-all-link { margin-bottom: 6px; color: var(--gold-pale); font-size: .82rem; font-weight: 800; letter-spacing: -.04em; }
 .guide-all-link span { margin-left: 8px; color: var(--gold); font-family: var(--serif); font-size: 1.22rem; }
+.guide-workbook-link { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin: 27px 0 -18px; padding: 16px 18px; border: 1px solid rgba(214,167,104,.34); color: var(--cream); background: linear-gradient(100deg, rgba(88,30,32,.68), rgba(27,18,18,.94)); font-size: .85rem; font-weight: 780; letter-spacing: -.045em; transition: border-color .16s ease, transform .16s ease; }
+.guide-workbook-link:hover { border-color: var(--gold); transform: translateY(-2px); }
+.guide-workbook-link small { color: rgba(247,240,232,.6); font-size: .72rem; font-weight: 600; }
+.guide-workbook-link b { color: var(--gold); font-family: var(--serif); font-size: 1.3rem; font-weight: 500; }
 .guide-related-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1px; margin-top: 48px; border: 1px solid rgba(247,240,232,.16); background: rgba(247,240,232,.16); }
 .guide-related-card { display: flex; flex-direction: column; min-height: 218px; padding: 22px; background: #151010; transition: background .18s ease, transform .18s ease; }
 .guide-related-card:hover { background: #241819; transform: translateY(-3px); }
@@ -185,6 +189,8 @@ h1, h2, h3, p { margin-top: 0; }
   .guide-related { padding: 78px 0 86px; }
   .guide-related-heading { display: block; }
   .guide-all-link { display: inline-block; margin-top: 23px; }
+  .guide-workbook-link { margin: 28px 0 -7px; align-items: start; }
+  .guide-workbook-link small { display: block; max-width: 215px; line-height: 1.55; }
   .guide-related-grid { grid-template-columns: 1fr; margin-top: 34px; }
   .guide-related-card { min-height: 180px; }
   .guide-footer .guide-shell { flex-direction: column; align-items: flex-start; gap: 10px; padding: 25px 0; }
