@@ -27,7 +27,7 @@ h1, h2, h3, p { margin-top: 0; }
 .city-header { position: absolute; z-index: 40; top: 0; right: 0; left: 0; border-bottom: 1px solid rgba(247,240,232,.16); }
 .city-header-inner { display: flex; align-items: center; min-height: 76px; gap: 24px; }
 .city-brand { display: inline-flex; align-items: center; gap: 10px; color: var(--cream); font-size: 1.05rem; font-weight: 850; letter-spacing: -.08em; }
-.city-brand img { width: 30px; height: 30px; filter: drop-shadow(0 7px 15px rgba(0,0,0,.28)); }
+.city-brand img { width: 36px; height: 36px; filter: drop-shadow(0 7px 15px rgba(0,0,0,.28)); }
 .city-brand b { color: var(--accent); }
 .city-header .region-menu { position: relative; margin-left: auto; }
 .city-header .region-menu summary { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0; color: rgba(247,240,232,.76); cursor: pointer; font-size: .77rem; font-weight: 800; letter-spacing: -.05em; list-style: none; transition: color 160ms ease; user-select: none; white-space: nowrap; }
