@@ -116,6 +116,23 @@ h1, h2, h3, p { margin-top: 0; }
 .city-check-list p { max-width: 530px; margin: 0; color: #625248; font-size: .91rem; line-height: 1.74; letter-spacing: -.04em; }
 .city-note { grid-column: 2; margin: -52px 0 0 68px; color: #765f50; font-size: .76rem; line-height: 1.7; letter-spacing: -.03em; }
 
+.city-reality { position: relative; overflow: hidden; padding: 122px 0 128px; color: var(--cream); background: #171111; }
+.city-reality::before { position: absolute; inset: 0; content: ""; opacity: .62; background-image: linear-gradient(color-mix(in srgb, var(--accent) 10%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--accent) 10%, transparent) 1px, transparent 1px); background-size: 44px 44px; mask-image: linear-gradient(90deg, transparent, black 18%, black 82%, transparent); pointer-events: none; }
+.city-reality-inner { position: relative; display: grid; grid-template-columns: .78fr 1fr; gap: 100px; align-items: start; }
+.city-reality-kicker { display: flex; align-items: center; gap: 11px; margin: 0 0 31px; color: var(--accent); font-family: var(--mono); font-size: .59rem; font-weight: 700; letter-spacing: .12em; }
+.city-reality-kicker::before { width: 31px; height: 1px; content: ""; background: currentColor; }
+.city-reality h2 { max-width: 570px; margin: 0; color: var(--cream); font-size: clamp(2.9rem, 4.55vw, 5rem); font-weight: 790; line-height: .97; letter-spacing: -.1em; }
+.city-reality h2 em { color: var(--accent); font-family: var(--serif); font-weight: 500; font-style: italic; letter-spacing: -.12em; }
+.city-reality-body { padding-top: 3px; border-top: 1px solid rgba(247,240,232,.2); }
+.city-reality-body > p { max-width: 630px; margin: 0; color: rgba(247,240,232,.72); font-size: .98rem; line-height: 1.88; letter-spacing: -.04em; }
+.city-reality-body > p + p { margin-top: 15px; color: rgba(247,240,232,.5); font-size: .87rem; }
+.city-reality-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 35px; border-top: 1px solid rgba(247,240,232,.2); border-left: 1px solid rgba(247,240,232,.2); }
+.city-reality-links a { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 10px; align-items: center; min-height: 72px; padding: 15px 16px; border-right: 1px solid rgba(247,240,232,.2); border-bottom: 1px solid rgba(247,240,232,.2); color: rgba(247,240,232,.74); background: rgba(247,240,232,0); transition: color .16s ease, background .16s ease; }
+.city-reality-links a:hover { color: var(--cream); background: color-mix(in srgb, var(--accent) 13%, transparent); }
+.city-reality-links small { color: var(--accent); font-family: var(--mono); font-size: .56rem; font-weight: 700; letter-spacing: .08em; }
+.city-reality-links strong { font-size: .8rem; font-weight: 760; line-height: 1.4; letter-spacing: -.045em; }
+.city-reality-links span { color: var(--accent); font-family: var(--serif); font-size: 1.16rem; font-style: italic; }
+
 .region-nav { padding: 72px 0 77px; background: #100c0d; }
 .region-nav .shell { display: grid; grid-template-columns: .33fr 1fr; gap: 54px; }
 .region-nav h2 { margin: 0; color: var(--cream); font-size: 1.28rem; letter-spacing: -.07em; }
@@ -157,10 +174,10 @@ h1, h2, h3, p { margin-top: 0; }
   .city-metric div + div { padding-left: 10px; }
   .city-metric span { font-size: .65rem; }
   .hero-trace { display: none; }
-  .city-manifesto, .city-lenses, .city-check { padding: 103px 0; }
-  .city-manifesto .shell, .city-lenses-heading, .city-check .shell, .region-nav .shell { grid-template-columns: 1fr; gap: 28px; }
+  .city-manifesto, .city-lenses, .city-check, .city-reality { padding: 103px 0; }
+  .city-manifesto .shell, .city-lenses-heading, .city-check .shell, .city-reality-inner, .region-nav .shell { grid-template-columns: 1fr; gap: 28px; }
   .city-manifesto .city-label { writing-mode: horizontal-tb; transform: none; }
-  .city-manifesto h2, .city-lenses h2, .city-check h2 { margin-top: 28px; font-size: clamp(3rem, 12vw, 4.9rem); }
+  .city-manifesto h2, .city-lenses h2, .city-check h2, .city-reality h2 { margin-top: 28px; font-size: clamp(3rem, 12vw, 4.9rem); }
   .city-manifesto-main > p { margin-top: 27px; font-size: .97rem; line-height: 1.82; }
   .city-quote { min-height: 0; margin-top: 26px; }
   .city-quote > p { margin-top: 23px; }
@@ -171,6 +188,12 @@ h1, h2, h3, p { margin-top: 0; }
   .city-lens-grid h3 { padding-top: 42px; font-size: 1.68rem; }
   .city-check-list { margin-top: 24px; }
   .city-note { grid-column: auto; margin: 0; }
+  .city-reality-kicker { margin-bottom: 24px; }
+  .city-reality h2 { margin-top: 0; }
+  .city-reality-body { padding-top: 19px; }
+  .city-reality-body > p { font-size: .95rem; line-height: 1.82; }
+  .city-reality-links { grid-template-columns: 1fr; margin-top: 28px; }
+  .city-reality-links a { min-height: 62px; }
   .region-nav { padding: 54px 0 60px; }
   .city-footer .shell { flex-direction: column; align-items: flex-start; gap: 10px; padding: 24px 0; }
 }
