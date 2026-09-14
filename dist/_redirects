@@ -1,0 +1,27 @@
+# Keep static index-file variants on their canonical directory URLs.
+/index.html / 301
+/about/index.html /about/ 301
+/regions/seoul/index.html /regions/seoul/ 301
+/regions/gyeonggi/index.html /regions/gyeonggi/ 301
+/regions/incheon/index.html /regions/incheon/ 301
+/regions/busan/index.html /regions/busan/ 301
+/regions/daegu/index.html /regions/daegu/ 301
+/regions/daejeon/index.html /regions/daejeon/ 301
+/regions/gwangju/index.html /regions/gwangju/ 301
+/regions/ulsan/index.html /regions/ulsan/ 301
+/regions/sejong/index.html /regions/sejong/ 301
+/regions/gangwon/index.html /regions/gangwon/ 301
+/regions/chungbuk/index.html /regions/chungbuk/ 301
+/regions/chungnam/index.html /regions/chungnam/ 301
+/regions/jeonbuk/index.html /regions/jeonbuk/ 301
+/regions/jeonnam/index.html /regions/jeonnam/ 301
+/regions/gyeongbuk/index.html /regions/gyeongbuk/ 301
+/regions/gyeongnam/index.html /regions/gyeongnam/ 301
+/regions/jeju/index.html /regions/jeju/ 301
+/guides/index.html /guides/ 301
+/guides/startup/index.html /guides/startup/ 301
+/guides/budget/index.html /guides/budget/ 301
+/guides/location/index.html /guides/location/ 301
+/guides/operations/index.html /guides/operations/ 301
+/guides/compliance/index.html /guides/compliance/ 301
+/tools/index.html /tools/ 301
